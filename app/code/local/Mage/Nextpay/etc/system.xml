@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config>
+	  <sections>
+		<payment  translate="label" module="nextpay">            
+					<groups>
+				      <nextpay translate="label"> 
+					  <label>NextPay</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>3</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                  <active translate="label">
+                      <label>Active</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_yesno</source_model>
+                      <sort_order>10</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </active>
+                  <title translate="label">
+                      <label>Title</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>20</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </title>
+                  <idcom translate="label">
+                      <label>NextPay Merchant Key</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>30</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </idcom>
+                  <transaction_type translate="label">
+                      <label>Transaction Type</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>nextpay/source_transactiontype</source_model>
+                      <sort_order>40</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </transaction_type>
+                  <allowspecific translate="label">
+                      <label>Payment from Applicable Countries</label>
+                      <frontend_type>allowspecific</frontend_type>
+                      <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                      <sort_order>50</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </allowspecific>
+                  <specificcountry translate="label">
+                      <label>Payment from Specific Countries</label>
+                      <frontend_type>multiselect</frontend_type>
+                      <source_model>adminhtml/system_config_source_country</source_model>
+                      <sort_order>60</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </specificcountry>
+                  <order_status translate="label">
+                      <label>New Order Status</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_order_status_new</source_model>
+                      <sort_order>70</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </order_status>
+                  <test_mode translate="label">
+                      <label>Test Mode</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_yesno</source_model>
+                      <sort_order>80</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </test_mode>
+                  <sort_order translate="label">
+                      <label>Sort Order</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>90</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                  </sort_order>
+					   </fields>
+					   </nextpay>
+					</groups>
+		</payment>
+	  </sections>
+</config>

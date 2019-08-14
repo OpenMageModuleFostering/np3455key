@@ -1,0 +1,48 @@
+<?php 
+	$session = Mage::getSingleton('checkout/session');
+	$orderIncrementId = $session->getLastRealOrderId();
+	$order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
+	$billingaddress = $order->getBillingAddress();
+	// $shippingaddress = $order->getShippingAddress();
+	$currencyDesc = Mage::app()->getStore()->getCurrentCurrencyCode();
+	$totals = number_format($order->getGrandTotal(), 2, '.', ''); 
+	$address = $billingaddress->getStreet();
+	// $address1 = $shippingaddress->getStreet();
+
+	$data = array(
+	'id_commerce'=> Mage::helper('nextpay')->getIdCommerce(),
+	'order'=> $order->getIncrementId(),
+	'amount'=> $totals,
+	'urlreturn'=> Mage::helper('nextpay')->getReturnUrl(),
+	'client_name'=> $order->getCustomerFirstname(),
+	'client_lastname'=> $order->getCustomerLastname(),
+	'client_address'=> $address[0] . ' '.$address[1],
+	'client_city'=> $billingaddress->getCity(),
+	'client_state'=> $billingaddress->getRegion(),
+	'client_country'=> Mage::helper('nextpay')->get3DigitCountryCode($billingaddress->getCountryId()),
+	'client_postcode'=> $billingaddress->getPostcode(),
+	'client_phone'=> $billingaddress->getTelephone(),
+	'client_email'=> $order->getCustomerEmail(),
+	'currency'=>'USD',
+	'trans_type'=> Mage::helper('nextpay')->getTransactionType(),
+	);
+	
+	$gateway_url = Mage::helper('nextpay')->getGatewayUrl();
+?>
+<form action="<?php echo $gateway_url; ?>" method="post" id="redirect_nextpay">
+	<?php foreach($data as $key => $value):	?>
+		<input type='hidden' name='<?php echo $key?>' value='<?php echo $value;?>' />
+	<?php endforeach;?>
+	<input type="submit" value='Buy Now'/> 
+</form>
+
+	<?php echo $this->__('If Page Doesn\'t Redirect In 5 Sectonds, Please press Buy button');?>
+	<script type="text/javascript">
+	function myfunc () {
+	var frm = document.getElementById("redirect_nextpay");
+	frm.submit();
+	}
+	window.onload = myfunc;
+	</script>
+ 
+			
