@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/np3455key",
+    "name": "openmage-module-fostering\/np3455key",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "New Extension Release",
     "authors": [
