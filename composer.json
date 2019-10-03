@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/np3455key",
+    "name": "OpenMageModuleFostering\/np3455key",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "New Extension Release",
     "authors": [
-    {
-        "name": "NextPay",
-        "email": "erick@nextpay.com"
-    }
-],
+        {
+            "name": "NextPay",
+            "email": "erick@nextpay.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
